@@ -19,3 +19,4 @@ Since the same request will be used for testing the domain object cannot be chan
 - think about lazy loading but not here where ALL is returned
 - add data request validator
 - remap table and column names
+- get by id should return 404 when not found

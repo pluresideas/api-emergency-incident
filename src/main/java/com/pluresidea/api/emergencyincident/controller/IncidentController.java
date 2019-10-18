@@ -5,7 +5,10 @@ import com.pluresidea.api.emergencyincident.repository.IncidentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/incident")
+import java.util.List;
+import java.util.Optional;
+
+@RequestMapping("/incidents")
 @RestController
 public class IncidentController {
 
@@ -16,12 +19,17 @@ public class IncidentController {
         this.repository = repository;
     }
 
-    @GetMapping("/{id}")
-    public Incident get(@PathVariable Long id) {
-        return new Incident();
+    @GetMapping
+    public List<Incident> getAll() {
+        return repository.findAll();
     }
 
-    @PostMapping("")
+    @GetMapping("/{id}")
+    public Optional<Incident> get(@PathVariable Integer id) {
+        return repository.findById(id);
+    }
+
+    @PostMapping
     public Incident save(@RequestBody Incident incident) {
         return repository.save(incident);
     }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 @Entity
 public class Incident {
 
-    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue Integer id;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Address AddressObject;
@@ -20,6 +20,10 @@ public class Incident {
     private Fire_department Fire_departmentObject;
 
     private String version;
+
+    public Integer getId(){
+        return id;
+    }
 
     public Address getAddress() {
         return AddressObject;
