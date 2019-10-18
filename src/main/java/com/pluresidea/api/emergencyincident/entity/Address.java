@@ -1,7 +1,13 @@
 package com.pluresidea.api.emergencyincident.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
 
+    @Id @GeneratedValue
     private String address_id;
     private String address_line1;
     private String city;
