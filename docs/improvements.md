@@ -1,0 +1,4 @@
+- think about the right type for numbers like latitude and longitude
+- fix class names Fire_department
+- real DB, not H2
+- map apparatus to object
