@@ -12,7 +12,7 @@ public class Incident {
     private Address AddressObject;
     ArrayList< Object > apparatus = new ArrayList < Object > ();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Description DescriptionObject;
 
     @ManyToOne

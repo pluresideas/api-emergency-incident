@@ -1,9 +1,6 @@
 package com.pluresidea.api.emergencyincident.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class Description {
@@ -12,13 +9,15 @@ public class Description {
     @GeneratedValue
     private Long id;
 
+    @Lob
+    @Column( length = 100000 )
     private String comments;
     private String day_of_week;
     private String event_closed;
     private String event_id;
     private String event_opened;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     Extended_data Extended_dataObject;
 
     private String first_unit_arrived;
