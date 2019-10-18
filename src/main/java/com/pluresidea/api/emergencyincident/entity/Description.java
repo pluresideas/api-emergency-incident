@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Description {
 
     @Id @GeneratedValue
-    private int id;
+    private Integer id;
 
     @Lob
     @Column( length = 100000 )

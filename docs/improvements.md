@@ -14,9 +14,9 @@ Since the same request will be used for testing the domain object cannot be chan
 - fix class names Fire_department
 - real DB, not H2
 - map apparatus to object
-- think about better entity ID generator
-- break down API to smaller footprint dedicated purposely build APIs
+- think about better & type consistent entity ID generator
+- break down monolith API to smaller footprint dedicated purposely build APIs
 - think about lazy loading but not here where ALL is returned
 - add data request validator
 - remap table and column names
-- get by id should return 404 when not found
+- get by id should return 404 when not found / add exception mapper
