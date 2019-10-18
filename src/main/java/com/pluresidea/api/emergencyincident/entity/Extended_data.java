@@ -1,6 +1,16 @@
 package com.pluresidea.api.emergencyincident.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Extended_data {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private float dispatch_duration;
     private float event_duration;
     private float response_time;

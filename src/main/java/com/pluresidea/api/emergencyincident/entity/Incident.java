@@ -1,17 +1,24 @@
 package com.pluresidea.api.emergencyincident.entity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
 public class Incident {
 
+    private @Id @GeneratedValue Long id;
+
+    @ManyToOne
     private Address AddressObject;
     ArrayList< Object > apparatus = new ArrayList < Object > ();
+
+    @OneToOne
     private Description DescriptionObject;
+
+    @ManyToOne
     private Fire_department Fire_departmentObject;
+
     private String version;
-
-
-    // Getter Methods
 
     public Address getAddress() {
         return AddressObject;
@@ -28,8 +35,6 @@ public class Incident {
     public String getVersion() {
         return version;
     }
-
-    // Setter Methods
 
     public void setAddress(Address addressObject) {
         this.AddressObject = addressObject;

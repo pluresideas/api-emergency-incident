@@ -1,12 +1,26 @@
 package com.pluresidea.api.emergencyincident.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Description {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private String comments;
     private String day_of_week;
     private String event_closed;
     private String event_id;
     private String event_opened;
+
+    @OneToOne
     Extended_data Extended_dataObject;
+
     private String first_unit_arrived;
     private String first_unit_dispatched;
     private String first_unit_enroute;

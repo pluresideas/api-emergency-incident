@@ -1,7 +1,14 @@
 package com.pluresidea.api.emergencyincident.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Fire_department {
 
+    @Id
+    @GeneratedValue
     private String fd_id;
     private String firecares_id;
     private String name;

@@ -2,3 +2,7 @@
 - fix class names Fire_department
 - real DB, not H2
 - map apparatus to object
+- think about better entity ID generator
+- break down API to smaller footprint dedicated purposely build APIs
+- think about lazy loading but not here where ALL is returned
+- add data request validator
