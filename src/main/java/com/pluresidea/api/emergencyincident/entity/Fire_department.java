@@ -8,7 +8,6 @@ import javax.persistence.Id;
 public class Fire_department {
 
     @Id
-    @GeneratedValue
     private String fd_id;
     private String firecares_id;
     private String name;

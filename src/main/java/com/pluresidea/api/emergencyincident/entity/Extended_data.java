@@ -7,8 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Extended_data {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
 
     private float dispatch_duration;

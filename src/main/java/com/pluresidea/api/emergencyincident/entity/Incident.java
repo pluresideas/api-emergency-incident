@@ -8,14 +8,15 @@ public class Incident {
 
     private @Id @GeneratedValue Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Address AddressObject;
+
     ArrayList< Object > apparatus = new ArrayList < Object > ();
 
     @OneToOne(cascade = CascadeType.PERSIST)
     private Description DescriptionObject;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Fire_department Fire_departmentObject;
 
     private String version;

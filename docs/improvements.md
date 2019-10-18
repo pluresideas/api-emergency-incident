@@ -6,3 +6,4 @@
 - break down API to smaller footprint dedicated purposely build APIs
 - think about lazy loading but not here where ALL is returned
 - add data request validator
+- remap table and column names

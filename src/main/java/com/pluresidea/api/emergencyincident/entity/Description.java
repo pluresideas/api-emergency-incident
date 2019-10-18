@@ -5,9 +5,8 @@ import javax.persistence.*;
 @Entity
 public class Description {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    @Id @GeneratedValue
+    private int id;
 
     @Lob
     @Column( length = 100000 )
