@@ -2,7 +2,6 @@ package com.pluresidea.api.emergencyincident.repository;
 
 import com.pluresidea.api.emergencyincident.ApiEmergencyIncidentApplication;
 import com.pluresidea.api.emergencyincident.entity.Incident;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +18,10 @@ class IncidentRepositoryTest {
     @Autowired
     private IncidentRepository repository;
 
-    @BeforeEach
-    void setUp() {
-    }
-
     @Test
     public void incidentRepository_returns_savedIncident() {
 
-        Incident incident = new Incident();
-        Incident savedIncident = repository.save(incident);
-
+        Incident savedIncident = repository.save(new Incident());
 
         Incident retrievedIncident = repository.getOne(savedIncident.getId());
 

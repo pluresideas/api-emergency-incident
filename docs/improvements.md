@@ -20,3 +20,4 @@ Since the same request will be used for testing the domain object cannot be chan
 - add data request validator
 - remap table and column names
 - get by id should return 404 when not found / add exception mapper
+- create Incident random data generator for unit/integration testing
