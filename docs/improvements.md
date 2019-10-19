@@ -25,3 +25,5 @@ Since the same request will be used for testing the domain object cannot be chan
 - investigate error when running tests: org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "start_value" not found
 - secure API (SSL, authentication, authorization)
 - implement  update (with one of Hibernate lock mode like optimistic)
+- add weather service url to config (property file, system/env prop)
+- handle errors for weather service url 

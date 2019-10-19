@@ -14,11 +14,15 @@ public class IncidentService {
 
     private final IncidentRepository repository;
     private final String darkSkyApiKey;
+    private final WeatherService weatherService;
 
     @Autowired
-    public IncidentService(IncidentRepository repository, @Value("${darkSkyApiKey}") String darkSkyApiKey) {
+    public IncidentService(IncidentRepository repository,
+                           @Value("${darkSkyApiKey}") String darkSkyApiKey,
+                           WeatherService weatherService) {
         this.repository = repository;
         this.darkSkyApiKey = darkSkyApiKey;
+        this.weatherService = weatherService;
     }
 
     public List<Incident> findAll() {
@@ -26,6 +30,7 @@ public class IncidentService {
     }
 
     public Optional<Incident> findById(Integer id) {
+        System.out.println(weatherService.weather());
         return repository.findById(id);
     }
 
