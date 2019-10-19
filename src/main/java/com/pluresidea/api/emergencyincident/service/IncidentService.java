@@ -1,5 +1,6 @@
 package com.pluresidea.api.emergencyincident.service;
 
+import com.pluresidea.api.emergencyincident.dto.IncidentWithWeather;
 import com.pluresidea.api.emergencyincident.entity.Incident;
 import com.pluresidea.api.emergencyincident.repository.IncidentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,11 @@ public class IncidentService {
         return repository.findAll();
     }
 
-    public Optional<Incident> findById(Integer id) {
-        System.out.println(weatherService.weather());
-        return repository.findById(id);
+    public IncidentWithWeather findById(Integer id) {
+        String weather = weatherService.weather();
+        Optional<Incident> incident = repository.findById(id);
+        // TODO handle optional
+        return new IncidentWithWeather(incident.get(), weather);
     }
 
     public Incident save(Incident incident) {

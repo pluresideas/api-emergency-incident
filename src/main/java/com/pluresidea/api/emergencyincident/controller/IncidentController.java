@@ -1,12 +1,12 @@
 package com.pluresidea.api.emergencyincident.controller;
 
+import com.pluresidea.api.emergencyincident.dto.IncidentWithWeather;
 import com.pluresidea.api.emergencyincident.entity.Incident;
 import com.pluresidea.api.emergencyincident.service.IncidentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping("/incidents")
 @RestController
@@ -25,7 +25,7 @@ public class IncidentController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Incident> get(@PathVariable Integer id) {
+    public IncidentWithWeather get(@PathVariable Integer id) {
         return service.findById(id);
     }
 
