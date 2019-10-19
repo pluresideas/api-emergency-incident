@@ -20,7 +20,7 @@ public class WeatherService {
         this.darkSkyApiKey = darkSkyApiKey;
     }
 
-    public Weather weather(String latitude,String longitude,long time) {
+    public Weather weather(float latitude,float longitude,long time) {
 
         String url = String.format(WEATHER_SERVICE_URL, darkSkyApiKey, latitude, longitude, time);
         Weather rsp = restClient.getForObject(url, Weather.class);

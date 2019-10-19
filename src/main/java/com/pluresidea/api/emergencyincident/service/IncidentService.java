@@ -1,5 +1,6 @@
 package com.pluresidea.api.emergencyincident.service;
 
+import com.pluresidea.api.emergencyincident.clinet.Currently;
 import com.pluresidea.api.emergencyincident.clinet.Weather;
 import com.pluresidea.api.emergencyincident.clinet.WeatherService;
 import com.pluresidea.api.emergencyincident.dto.IncidentWithWeather;
@@ -8,8 +9,10 @@ import com.pluresidea.api.emergencyincident.repository.IncidentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class IncidentService {
@@ -28,11 +31,23 @@ public class IncidentService {
         return repository.findAll();
     }
 
-    public IncidentWithWeather findById(Integer id) {
-        Weather weather = weatherService.weather("37.8267", "-122.4233", 971161627);
-        Optional<Incident> incident = repository.findById(id);
-        // TODO handle optional
-        return new IncidentWithWeather(incident.get(), weather.getCurrently());
+    public IncidentWithWeather findById(Integer id) throws ParseException {
+
+        // TODO better handle optional
+        Incident incident = repository.findById(id).get();
+        if ( incident != null) {
+            Weather weather = weatherService.weather(
+                    incident.getAddress().getLatitude(),
+                    incident.getAddress().getLongitude(),
+                    toTime(incident.getDescription().getEvent_opened()));
+            return new IncidentWithWeather(incident, weather.getCurrently());
+        }
+        return new IncidentWithWeather(new Incident(), new Currently());
+    }
+
+    long toTime(String eventOpened) throws ParseException {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+        return format.parse(eventOpened).getTime()/1000;
     }
 
     public Incident save(Incident incident) {

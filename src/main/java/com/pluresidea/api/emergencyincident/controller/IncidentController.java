@@ -6,6 +6,7 @@ import com.pluresidea.api.emergencyincident.service.IncidentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RequestMapping("/incidents")
@@ -25,7 +26,7 @@ public class IncidentController {
     }
 
     @GetMapping("/{id}")
-    public IncidentWithWeather get(@PathVariable Integer id) {
+    public IncidentWithWeather get(@PathVariable Integer id) throws ParseException {
         return service.findById(id);
     }
 
