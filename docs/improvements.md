@@ -12,8 +12,8 @@ Since the same request will be used for testing the domain object cannot be chan
 
 - think about the right type for numbers like latitude and longitude
 - fix class names Fire_department
-- real DB, not H2
-- map apparatus to object
+- real DB not H2
+- map apparatus/"cars" using many-to-many list
 - think about better & type consistent entity ID generator
 - break down monolith API to smaller footprint dedicated purposely build APIs
 - think about lazy loading but not here where ALL is returned
@@ -23,3 +23,5 @@ Since the same request will be used for testing the domain object cannot be chan
 - create Incident random data generator for unit/integration testing
 - support update with PUT
 - investigate error when running tests: org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "start_value" not found
+- secure API (SSL, authentication, authorization)
+- implement  update (with one of Hibernate lock mode like optimistic)

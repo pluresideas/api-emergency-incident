@@ -11,7 +11,7 @@ public class Incident {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Address AddressObject;
 
-    ArrayList< Object > apparatus = new ArrayList < Object > ();
+    private ArrayList< Object > apparatus = new ArrayList < Object > ();
 
     @OneToOne(cascade = CascadeType.PERSIST)
     private Description DescriptionObject;

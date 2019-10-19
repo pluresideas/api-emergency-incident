@@ -17,7 +17,7 @@ public class Description {
     private String event_opened;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    Extended_data Extended_dataObject;
+    private Extended_data Extended_dataObject;
 
     private String first_unit_arrived;
     private String first_unit_dispatched;

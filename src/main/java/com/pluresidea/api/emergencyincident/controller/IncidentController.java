@@ -1,7 +1,7 @@
 package com.pluresidea.api.emergencyincident.controller;
 
 import com.pluresidea.api.emergencyincident.entity.Incident;
-import com.pluresidea.api.emergencyincident.repository.IncidentRepository;
+import com.pluresidea.api.emergencyincident.service.IncidentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,26 +12,26 @@ import java.util.Optional;
 @RestController
 public class IncidentController {
 
-    private final IncidentRepository repository;
+    private final IncidentService service;
 
     @Autowired
-    public IncidentController(IncidentRepository repository) {
-        this.repository = repository;
+    public IncidentController(IncidentService service) {
+        this.service = service;
     }
 
     @GetMapping
     public List<Incident> getAll() {
-        return repository.findAll();
+        return service.findAll();
     }
 
     @GetMapping("/{id}")
     public Optional<Incident> get(@PathVariable Integer id) {
-        return repository.findById(id);
+        return service.findById(id);
     }
 
     @PostMapping
     public Incident save(@RequestBody Incident incident) {
-        return repository.save(incident);
+        return service.save(incident);
     }
 
 }
