@@ -1,5 +1,8 @@
 package com.pluresidea.api.emergencyincident.service;
 
+import com.pluresidea.api.emergencyincident.clinet.Currently;
+import com.pluresidea.api.emergencyincident.clinet.Weather;
+import com.pluresidea.api.emergencyincident.clinet.WeatherService;
 import com.pluresidea.api.emergencyincident.dto.IncidentWithWeather;
 import com.pluresidea.api.emergencyincident.entity.Incident;
 import com.pluresidea.api.emergencyincident.repository.IncidentRepository;
@@ -31,10 +34,10 @@ public class IncidentService {
     }
 
     public IncidentWithWeather findById(Integer id) {
-        String weather = weatherService.weather();
+        Weather weather = weatherService.weather();
         Optional<Incident> incident = repository.findById(id);
         // TODO handle optional
-        return new IncidentWithWeather(incident.get(), weather);
+        return new IncidentWithWeather(incident.get(), weather.getCurrently());
     }
 
     public Incident save(Incident incident) {

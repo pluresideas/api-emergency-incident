@@ -1,13 +1,14 @@
 package com.pluresidea.api.emergencyincident.dto;
 
+import com.pluresidea.api.emergencyincident.clinet.Currently;
 import com.pluresidea.api.emergencyincident.entity.Incident;
 
 public class IncidentWithWeather {
 
     private final Incident incident;
-    private final String weather;
+    private final Currently weather;
 
-    public IncidentWithWeather(Incident incident, String weather) {
+    public IncidentWithWeather(Incident incident, Currently weather) {
         this.incident = incident;
         this.weather = weather;
     }
@@ -16,7 +17,7 @@ public class IncidentWithWeather {
         return incident;
     }
 
-    public String getWeather() {
+    public Currently getWeather() {
         return weather;
     }
 }

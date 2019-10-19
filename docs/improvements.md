@@ -27,4 +27,6 @@ Since the same request will be used for testing the domain object cannot be chan
 - implement  update (with one of Hibernate lock mode like optimistic)
 - add weather service url to config (property file, system/env prop)
 - handle errors for weather service url
-- enrich get all API 
+- enrich get all API
+- write tests for weather api/enrichment 
+ 
