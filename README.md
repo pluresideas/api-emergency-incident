@@ -1,5 +1,5 @@
 # api-emergency-incident
-911 Emergency Incident API
+911 Emergency Incident API (interview project)
 
 ## Documentation
 See docs/improvements.md
